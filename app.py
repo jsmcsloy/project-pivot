@@ -12,6 +12,10 @@ st.sidebar.header("Project Processor")
 
 in_file = st.sidebar.file_uploader("Pick or drag in your file")
 
+project_button = st.sidebar('heelo')
+
+
+
 
 #create teh dataframe
 try:
@@ -22,6 +26,7 @@ try:
 except:
     print ('failed 1')
     pass
+
 
 try:
 
