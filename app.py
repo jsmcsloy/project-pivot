@@ -10,7 +10,7 @@ st.title("Report processor v1")
 
 st.sidebar.header("Project Processor")
 
-in_file = st.file_uploader("Pick or drag in your file")
+in_file = st.sidebar.file_uploader("Pick or drag in your file")
 
 
 #create teh dataframe
