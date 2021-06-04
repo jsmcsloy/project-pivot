@@ -14,7 +14,7 @@ in_file = st.sidebar.file_uploader("Pick or drag in your file")
 
 project_button = st.sidebar.button("Process")
 
-if poject_button == True:
+if project_button == True:
 
 
     #create teh dataframe
