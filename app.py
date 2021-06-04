@@ -14,10 +14,11 @@ in_file = st.file_uploader("Pick or drag in your file")
 #create teh dataframe
 try:
     df = pd.read_excel(in_file)
-
+    print('read ok')
 
 
 except:
+    print ('failed 1')
     pass
 
 try:
