@@ -5,7 +5,7 @@ from pandas import DataFrame, read_csv
 import streamlit as st
 import numpy as np
 import base64
-import openpyxl
+import xlrd
 
 #App to pretty up excel data 
 
