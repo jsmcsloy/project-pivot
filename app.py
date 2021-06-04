@@ -14,46 +14,47 @@ in_file = st.sidebar.file_uploader("Pick or drag in your file")
 
 project_button = st.sidebar.button("Process")
 
+if poject_button == True:
 
 
-#create teh dataframe
-try:
-    df = pd.read_excel(in_file)
-    print('read ok')
+    #create teh dataframe
+    try:
+        df = pd.read_excel(in_file)
+        print('read ok')
 
 
-except:
-    print ('failed 1')
-    pass
+    except:
+        print ('failed 1')
+        pass
 
 
-try:
+    try:
 
-    df["Job Card Number"] = df["Job Card Number"].astype("category")
+        df["Job Card Number"] = df["Job Card Number"].astype("category")
 
-    allocation = pd.pivot_table(df, index=["Colorist","Project #"], columns = ["Job Card Type"], values="Job Card Number", aggfunc=[len], fill_value=0 ,margins=True)
-    projects =  pd.pivot_table(df, index=["Project #"], columns = ["Colorist"], values="Job Card Number", aggfunc=[len], fill_value=0 ,margins=True)
-
-
-
-
-
-    st.subheader("Work Allocation")
-    allocation
-    st.subheader("Projects #")
-    projects
-
-
-    # grp = df.groupby(["Project #"])
-    # grp.describe()
+        allocation = pd.pivot_table(df, index=["Colorist","Project #"], columns = ["Job Card Type"], values="Job Card Number", aggfunc=[len], fill_value=0 ,margins=True)
+        projects =  pd.pivot_table(df, index=["Project #"], columns = ["Colorist"], values="Job Card Number", aggfunc=[len], fill_value=0 ,margins=True)
 
 
 
- 
 
 
-except:
-    st.header("Not the file we are looking for, move along, move along..")
+        st.subheader("Work Allocation")
+        allocation
+        st.subheader("Projects #")
+        projects
+
+
+        # grp = df.groupby(["Project #"])
+        # grp.describe()
+
+
+
+    
+
+
+    except:
+        st.header("Not the file we are looking for, move along, move along..")
 
 
 
