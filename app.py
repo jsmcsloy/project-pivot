@@ -6,6 +6,9 @@ import streamlit as st
 import numpy as np
 import base64
 import openpyxl
+import io
+
+buffer = io.BytesIO()
 
 #App to pretty up excel data
 
@@ -29,14 +32,14 @@ if project_button == True:
     projects
 
     table = pd.pivot_table(df,index=["Colorist","Project #"], values=["Job Card Number"],aggfunc=[len],fill_value=0)
-    writer = pd.ExcelWriter('output.xlsx')
+    writer = pd.ExcelWriter(buffer)
     for manager in table.index.get_level_values(0).unique():
         temp_df = table.xs(manager, level=0)
         temp_df.to_excel(writer,manager, encoding='utf-8')
         fs = writer.save()
-        b64 = base64.b64encode(fs)
         
-        href = f'<a href="data:file/xls;base64,{b64}" download="new_file.xlsx">Download xslx</a>'
+        
+        href = f'<a href="data:file/xls;base64,{fs}" download="new_file.xlsx">Download xslx</a>'
 
     st.write(href, unsafe_allow_html=True)
 
