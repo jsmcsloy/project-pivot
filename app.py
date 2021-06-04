@@ -1,5 +1,5 @@
 import pandas as pd
-from pandas import DataFrame, read_csv
+from pandhttps://github.com/jsmcsloy/project-pivotas import DataFrame, read_csv
 import streamlit as st
 import numpy as np
 import base64
@@ -33,7 +33,7 @@ try:
 
     st.subheader("Work Allocation")
     allocation
-    st.subheader("Projects")
+    st.subheader("Projects #")
     projects
 
 
