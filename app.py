@@ -5,7 +5,7 @@ from pandas import DataFrame, read_csv
 import streamlit as st
 import numpy as np
 import base64
-import xlrd
+import openpyxl
 
 #App to pretty up excel data 
 
@@ -13,7 +13,7 @@ st.title("Report processor v1")
 
 st.sidebar.header("Project Processor")
 
-in_file = st.sidebar.file_uploader("Pick or drag in your file", type="xlsx")
+in_file = st.sidebar.file_uploader("Pick or drag in your file", type="xlsx", engine ="openpyxl")
 
 project_button = st.sidebar.button("Process") 
 
