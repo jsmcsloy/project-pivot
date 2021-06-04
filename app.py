@@ -32,11 +32,11 @@ if project_button == True:
     writer = pd.ExcelWriter('output.xlsx')
     for manager in table.index.get_level_values(0).unique():
         temp_df = table.xs(manager, level=0)
-        temp_df.to_excel(writer,manager)
+        temp_df.to_excel(writer,manager, encoding='utf-8'))
         fs = writer.save()
-
+        b64 = base64.b64encode(fs)
         
-        href = f'<a href="data:file/xls;base64,{fs}" download="new_file.xlsx">Download xslx</a>'
+        href = f'<a href="data:file/xls;base64,{b64}" download="new_file.xlsx">Download xslx</a>'
 
     st.write(href, unsafe_allow_html=True)
 
