@@ -27,47 +27,10 @@ if project_button == True:
     st.subheader("Projects #")
     projects
 
-
-
-    # #create teh dataframe
-    # try:
-    #     df = pd.read_excel(in_file)
-    #     print('read ok')
-
-
-    # except:
-    #     print ('failed 1')
-    #     pass
-
-
-    # try:
-
-    #     df["Job Card Number"] = df["Job Card Number"].astype("category")
-
-    #     allocation = pd.pivot_table(df, index=["Colorist","Project #"], columns = ["Job Card Type"], values="Job Card Number", aggfunc=[len], fill_value=0 ,margins=True)
-    #     projects =  pd.pivot_table(df, index=["Project #"], columns = ["Colorist"], values="Job Card Number", aggfunc=[len], fill_value=0 ,margins=True)
-
-
-
-
-
-    #     st.subheader("Work Allocation")
-    #     allocation
-    #     st.subheader("Projects #")
-    #     projects
-
-
-    #     # grp = df.groupby(["Project #"])
-    #     # grp.describe()
-
-
-
-    
-
-
-    # except:
-    #     st.header("Not the file we are looking for, move along, move along..")
-
-
-
+    table = pd.pivot_table(df,index=["Colorist","Project #"], values=["Job Card Number"],aggfunc=[len],fill_value=0)
+        writer = pd.ExcelWriter('output.xlsx')
+        for manager in table.index.get_level_values(0).unique():
+            temp_df = table.xs(manager, level=0)
+            temp_df.to_excel(writer,manager)
+        writer.save()
 
