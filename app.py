@@ -39,7 +39,7 @@ if project_button == True:
         writer.save()
         
         
-        href = f'<a href="{buffer}" download="new_file.xlsx">Download xslx</a>'
+        href = f'<a href="data:file/xls;base64,{buffer}" download="new_file.xlsx">Download xslx</a>'
 
     st.write(href, unsafe_allow_html=True)
 
