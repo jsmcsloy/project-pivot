@@ -32,7 +32,7 @@ if project_button == True:
     writer = pd.ExcelWriter('output.xlsx')
     for manager in table.index.get_level_values(0).unique():
         temp_df = table.xs(manager, level=0)
-        temp_df.to_excel(writer,manager, encoding='utf-8')
+        temp_df.to_excel(writer,manager)
         #writer.save()
         with open(writer,'rb') as f:
             b64 = base64.b64encode(f.read())
