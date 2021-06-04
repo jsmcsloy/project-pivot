@@ -15,7 +15,7 @@ in_file = st.sidebar.file_uploader("Pick or drag in your file")
 project_button = st.sidebar.button("Process")
 
 if project_button == True:
-df = pd.read_excel(in_file)
+    df = pd.read_excel(in_file)
 
     # #create teh dataframe
     # try:
