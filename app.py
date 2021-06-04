@@ -1,3 +1,5 @@
+pip install openpyxl
+
 import pandas as pd
 from pandas import DataFrame, read_csv
 import streamlit as st
