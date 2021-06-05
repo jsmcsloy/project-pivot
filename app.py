@@ -14,12 +14,15 @@ import os
 #App to pretty up excel data
 
 st.title("Report processor v1")
-
 st.sidebar.header("Project Processor")
-
 in_file = st.sidebar.file_uploader("Pick or drag in your file", type="xlsx")
-
 project_button = st.sidebar.button("Process")
+
+st.sidebar.header("New Colour Processor")
+in_file = st.sidebar.file_uploader("Pick or drag in your file", type="xlsx")
+project_button = st.sidebar.button("Process")
+
+
 
 try:
         
