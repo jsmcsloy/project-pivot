@@ -19,7 +19,8 @@ in_file = st.sidebar.file_uploader("Pick or drag in your file", type="xlsx")
 project_button = st.sidebar.button("Process")
 
 st.sidebar.header("New Colour Processor")
-in_file2 = st.sidebar.file_uploader("Pick or drag in your file", type="xlsx")
+
+in_file2 = st.sidebar.file_uploader("Pick your file", type="xlsx")
 # new_button = st.sidebar.button("Process ")
 
 
