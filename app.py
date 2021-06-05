@@ -41,7 +41,7 @@ if project_button == True:
    
         with open(writer,'rb') as f: 
             b64 = base64.b64encode(f.read())
-            href = f'<a href="jsmcsloy/project-pivot/main/file/xls;base64,{b64}" download="new_file.xlsx">Download xslx</a>'
+            #href = f'<a href="jsmcsloy/project-pivot/main/file/xls;base64,{b64}" download="new_file.xlsx">Download xslx</a>'
 
         st.write(href, unsafe_allow_html=True)
 
