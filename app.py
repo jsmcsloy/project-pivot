@@ -6,9 +6,15 @@ import streamlit as st
 import numpy as np
 import base64
 import openpyxl
-import io
+import os
 
-buffer = io.BytesIO()
+
+
+report+path = "jsmcsloy/project-pivot/main/"
+if not os.path.exists(report_path):
+    os.makedirs(report_path)
+
+
 
 #App to pretty up excel data
 
@@ -32,19 +38,16 @@ if project_button == True:
     projects
 
     table = pd.pivot_table(df,index=["Colorist","Project #"], values=["Job Card Number"],aggfunc=[len],fill_value=0)
-    writer = pd.ExcelWriter(buffer)
+    writer = pd.ExcelWriter(os.path.join(report_path, 
+                        'Part_Report_Card_' + fname), 
+                        engine='xlsxwriter')
     for manager in table.index.get_level_values(0).unique():
         temp_df = table.xs(manager, level=0)
         temp_df.to_excel(writer,manager, encoding='utf-8')
-        #writer.save()
+        writer.save()
 
    
-        with open(writer,'rb') as f: 
-            b64 = base64.b64encode(f.read())
-            #href = f'<a href="jsmcsloy/project-pivot/main/file/xls;base64,{b64}" download="new_file.xlsx">Download xslx</a>'
-
-        st.write(href, unsafe_allow_html=True)
-
+     
 
 
 
