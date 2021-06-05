@@ -36,21 +36,19 @@ if project_button == True:
     projects
 
     table = pd.pivot_table(df,index=["Colorist","Project #"], values=["Job Card Number"],aggfunc=[len],fill_value=0)
-    writer = pd.ExcelWriter('jsmcsloy/project-pivot/main/output.xlsx')
+    writer = pd.ExcelWriter('output.xlsx')
     for manager in table.index.get_level_values(0).unique():
         temp_df = table.xs(manager, level=0)
         temp_df.to_excel(writer,manager)
     writer.save()
 
    
-     
+    def get_binary_file_downloader_html(bin_file, file_label='File'):
+        with open(bin_file, 'rb') as f:
+            data = f.read()
+        bin_str = base64.b64encode(data).decode()
+        href = f'<a href="data:application/octet-stream;base64,{bin_str}" download="{os.path.basename(bin_file)}">Download {file_label}</a>'
+        return href
 
 
-
-
-
-
-
-    href = f'<a href="jsmcsloy/project-pivot/main/output.xlsx">Download</a>'
-
-    st.write(href, unsafe_allow_html=True)
+st.markdown(get_binary_file_downloader_html('output.xslx', 'Data'), unsafe_allow_html=True)
