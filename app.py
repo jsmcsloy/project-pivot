@@ -50,6 +50,6 @@ try:
             return href
 
         st.markdown(get_binary_file_downloader_html('output.xlsx', 'Data'), unsafe_allow_html=True)
-        
-    except:
-        st.write("Not the file we were looking for, move along.")    
+
+except:
+    st.write("Not the file we were looking for, move along.")    
