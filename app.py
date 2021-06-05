@@ -51,4 +51,4 @@ if project_button == True:
         return href
 
 
-st.markdown(get_binary_file_downloader_html('output.xslx', 'Data'), unsafe_allow_html=True)
+st.markdown(get_binary_file_downloader_html(bin_file, 'Data'), unsafe_allow_html=True)
