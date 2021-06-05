@@ -51,6 +51,6 @@ if project_button == True:
 
 
 
-    href = f'<a href="jsmcsloy/project-pivot/main/output.xlsx" download="new_file.xlsx">Download</a>'
+    href = f'<a href="jsmcsloy/project-pivot/main/output.xlsx">Download</a>'
 
     st.write(href, unsafe_allow_html=True)
