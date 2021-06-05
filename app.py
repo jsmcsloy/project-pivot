@@ -11,10 +11,6 @@ import os
 
 
 
-
-
-
-
 #App to pretty up excel data
 
 st.title("Report processor v1")
@@ -51,5 +47,4 @@ if project_button == True:
         href = f'<a href="data:application/octet-stream;base64,{bin_str}" download="{os.path.basename(bin_file)}">Download {file_label}</a>'
         return href
 
-
-st.markdown(get_binary_file_downloader_html('output.xlsx', 'Data'), unsafe_allow_html=True)
+    st.markdown(get_binary_file_downloader_html('output.xlsx', 'Data'), unsafe_allow_html=True)
