@@ -6,13 +6,11 @@ import streamlit as st
 import numpy as np
 import base64
 import openpyxl
-import os
 
 
 
-report_path = "jsmcsloy/project-pivot/main/"
-if not os.path.exists(report_path):
-    os.makedirs(report_path)
+
+
 
 
 
@@ -38,7 +36,7 @@ if project_button == True:
     projects
 
     table = pd.pivot_table(df,index=["Colorist","Project #"], values=["Job Card Number"],aggfunc=[len],fill_value=0)
-    writer = pd.ExcelWriter(os.path.join(report_path))
+    writer = pd.ExcelWriter()
     for manager in table.index.get_level_values(0).unique():
             temp_df = table.xs(manager, level=0)
             temp_df.to_excel(writer,manager, encoding='utf-8')
