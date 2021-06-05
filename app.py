@@ -40,7 +40,7 @@ if project_button == True:
     for manager in table.index.get_level_values(0).unique():
         temp_df = table.xs(manager, level=0)
         temp_df.to_excel(writer,manager)
-    writer.save()
+    #writer.save()
 
    
     def get_binary_file_downloader_html(bin_file, file_label='File'):
@@ -51,4 +51,4 @@ if project_button == True:
         return href
 
 
-st.markdown(get_binary_file_downloader_html(bin_file, 'Data'), unsafe_allow_html=True)
+st.markdown(get_binary_file_downloader_html(writer.read(), 'Data'), unsafe_allow_html=True)
