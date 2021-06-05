@@ -38,7 +38,7 @@ if project_button == True:
     projects
 
     table = pd.pivot_table(df,index=["Colorist","Project #"], values=["Job Card Number"],aggfunc=[len],fill_value=0)
-    writer = pd.ExcelWriter(os.path.join(report_path, engine='xlsxwriter')
+    writer = pd.ExcelWriter(os.path.join(report_path, engine='xlsxwriter'))
     for manager in table.index.get_level_values(0).unique():
             temp_df = table.xs(manager, level=0)
             temp_df.to_excel(writer,manager, encoding='utf-8')
