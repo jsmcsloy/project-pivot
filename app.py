@@ -36,11 +36,11 @@ if project_button == True:
     for manager in table.index.get_level_values(0).unique():
         temp_df = table.xs(manager, level=0)
         temp_df.to_excel(writer,manager, encoding='utf-8')
-        writer.save()
+        #writer.save()
         
-    fs = buffer  
-    b64 = base64.b64encode(fs)  
-    href = f'<a href="data:file/xls;base64,{b64}" download="new_file.xlsx">Download xslx</a>'
+    with open(writer,'rb') as f: 
+        b64 = base64.b64encode(f.read())
+        href = f'<a href="data:file/xls;base64,{b64}" download="new_file.xlsx">Download xslx</a>'
 
     st.write(href, unsafe_allow_html=True)
 
