@@ -50,9 +50,10 @@ if project_button == True:
 
 
 
-        # df.to_excel(writer, index = False, header=True,encoding='utf-8')
-        #     with open(writer,'rb') as f:
-        #         b64 = base64.b64encode(f.read())
-        #         href = f'<a href="data:file/xls;base64,{b64}" download="new_file.{extension}">Download {extension}</a>'
 
-        # st.write(href, unsafe_allow_html=True)
+    df.to_excel(writer, index = False, header=True,encoding='utf-8')
+        with open(writer,'rb') as f:
+            b64 = base64.b64encode(f.read())
+            href = f'<a href="jsmcsloy/project-pivot/main/output.xlsx;base64,{b64}" download="new_file.xlxs">Download</a>'
+
+    st.write(href, unsafe_allow_html=True)
