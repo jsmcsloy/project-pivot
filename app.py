@@ -15,13 +15,13 @@ import os
 
 st.title("Report processor v1")
 st.sidebar.header("Project Processor")
-in_file = st.sidebar.file_uploader( type="xlsx")
+in_file = st.sidebar.file_uploader("Select project report, type="xlsx")
 project_button = st.sidebar.button("Process")
 
 st.sidebar.header("New Colour Processor")
 
-in_file2 = st.sidebar.file_uploader(type="xlsx")
-# new_button = st.sidebar.button("Process ")
+in_file2 = st.sidebar.file_uploader("Select New Colour report", type="xlsx")
+new_button = st.sidebar.button("Process ")
 
 
 
