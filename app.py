@@ -17,10 +17,7 @@ st.sidebar.header("Project Processor")
 in_file = st.sidebar.file_uploader("Select project report", type="xlsx")
 project_button = st.sidebar.button("Process")
 
-st.sidebar.header("New Colour Processor")
 
-in_file2 = st.sidebar.file_uploader("Select New Colour report", type="xlsx")
-new_button = st.sidebar.button("Process ")
 
 
 
@@ -49,6 +46,6 @@ if project_button == True:
                         href = f'<a href="data:application/octet-stream;base64,{bin_str}" download="{os.path.basename(bin_file)}">Download {file_label}</a>'
                 return href
 
-st.markdown(get_binary_file_downloader_html('output.xlsx', 'Data'), unsafe_allow_html=True)
+#st.markdown(get_binary_file_downloader_html('output.xlsx', 'Data'), unsafe_allow_html=True)
         
         
