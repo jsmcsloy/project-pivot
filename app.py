@@ -23,7 +23,9 @@ project_button = st.sidebar.button("Process")
 
 
 if project_button == True:
-        df = pd.read_excel(in_file)
+       ### df = pd.read_excel(in_file)
+        df = pd.read_csv(in_file)
+
 
 
         df["Job Card Number"] = df["Job Card Number"].astype("category")
