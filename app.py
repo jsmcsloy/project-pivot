@@ -33,7 +33,7 @@ if project_button == True:
         projects =  pd.pivot_table(df, index=["Project #"], columns = ["Colorist"], values="Job Card Number", aggfunc=[len], fill_value=0 ,margins=True)
 
         st.subheader("Projects #")
-        projects
+     
 
         table = pd.pivot_table(df,index=["Colorist","Project #"], values=["Job Card Number"],aggfunc=[len],fill_value=0)
         writer = pd.ExcelWriter('output.xlsx')
